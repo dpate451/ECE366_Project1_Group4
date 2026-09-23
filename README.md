@@ -1,4 +1,9 @@
 # ECE 366: Computer Organization - Project 1
+
+![Verilog](https://img.shields.io/badge/Language-Verilog-blue.svg)
+![Platform](https://img.shields.io/badge/Simulator-EDA%20Playground-orange.svg)
+![Status](https://img.shields.io/badge/Status-In%20Progress-green.svg)
+
 ---
 
 ## 📌 Project Overview
@@ -21,20 +26,20 @@ This repository contains the design, implementation, and simulation of various f
 
 ```text
 .
-├── src/
-│   ├── problem1_rca_rcs/
-│   │   ├── one_bit_full_adder.v
-│   │   ├── four_bit_RCA_RCS.v
-│   │   └── tb_four_bit_RCA_RCS.v
-│   ├── problem2_cla/
-│   │   ├── CLA_32bit.v
-│   │   └── tb_CLA_32bit.v
-│   ├── problem3_ppa/
-│   │   ├── PPA_16bit.v
-│   │   └── tb_PPA_16bit.v
-│   └── problem4_bonus_ks/
-│       ├── KoggeStone_16bit.v
-│       └── tb_KoggeStone_16bit.v
+├── Problem 1/
+│   ├── four_bit_RCA_RCS.v
+│   ├── one_bit_full_adder.v
+│   ├── one_bit_full_adder_structural.v
+│   └── testbench.v
+├── Problem 2/
+│   ├── CLA_32bit.v
+│   └── tb_CLA_32bit.v
+├── Problem 3/
+│   ├── PPA_16bit.v
+│   └── tb_PPA_16bit.v
+├── Problem 4/
+│   ├── KoggeStone_16bit.v
+│   └── tb_KoggeStone_16bit.v
 ├── reports/
 │   ├── Progress_Report_1.pdf
 │   ├── Progress_Report_2.pdf
