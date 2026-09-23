@@ -1,8 +1,8 @@
 # ECE 366: Computer Organization — Project 1
 
-* **Instructor:** Prof. Debjit Pal (DP)[cite: 1]
-* **Semester:** Fall 2026[cite: 1]
-* **Simulation Environment:** EDA Playground / Verilog HDL[cite: 1]
+* **Instructor:** Prof. Debjit Pal
+* **Semester:** Fall 2026
+* **Simulation Environment:** EDA Playground / Verilog HDL
 
 ---
 
