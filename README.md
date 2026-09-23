@@ -1,9 +1,4 @@
 # ECE 366: Computer Organization - Project 1
-
-![Verilog](https://img.shields.io/badge/Language-Verilog-blue.svg)
-![Platform](https://img.shields.io/badge/Simulator-EDA%20Playground-orange.svg)
-![Status](https://img.shields.io/badge/Status-In%20Progress-green.svg)
-
 ---
 
 ## 📌 Project Overview
