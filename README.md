@@ -15,7 +15,7 @@
 ---
 
 ## 📌 Project Overview
-This project focuses on designing, modeling, and verifying arithmetic logic units (ALUs) and addition/subtraction architectures using Verilog HDL[cite: 1]. The designs span structural and behavioral modeling, ranging from basic 1-bit building blocks up to complex 32-bit Carry Lookahead and 16-bit Parallel Prefix Adders[cite: 1].
+This project focuses on designing, modeling, and verifying arithmetic logic units (ALUs) and addition/subtraction architectures using Verilog HDL. The designs span structural and behavioral modeling, ranging from basic 1-bit building blocks up to complex 32-bit Carry Lookahead and 16-bit Parallel Prefix Adders.
 
 ---
 
