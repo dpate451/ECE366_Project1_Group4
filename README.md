@@ -33,8 +33,8 @@ This repository contains the design, implementation, and simulation of various f
 │   ├── PPA_16bit.v
 │   └── tb_PPA_16bit.v
 ├── Problem 4/
-│   ├── KoggeStone_16bit.v
-│   └── tb_KoggeStone_16bit.v
+│   ├── tb_KS_Adder.v
+│   └── KS_Adder.v
 ├── reports/
 │   ├── Progress_Report_1.pdf
 │   ├── Progress_Report_2.pdf
