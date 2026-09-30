@@ -12,8 +12,8 @@ This repository contains the design, implementation, and simulation of various f
 | :--- | :--- |
 | **Diya Patel** | • **Problem 1:** 1-bit & 4-bit Ripple-Carry Adder/Subtractor (RCA/RCS)<br>• **Problem 4 (Bonus):** 16-bit Kogge-Stone Adder (KS)<br>• **Final Report:** Compilation, analysis, and final submission lead |
 | **Daniall & Daniel** | • **Problem 2:** 32-bit Carry Lookahead Adder (CLA) Design & Testbench<br>• Multi-block carry propagation verification |
-| **Daniel** | • **Problem 3:** 16-bit Parallel Prefix Adder (PPA) Design & Testbench<br>• Structural verification & waveform debugging |
-| **Brice** | • **Progress Report 1:** Status summary & submission<br>• **Progress Report 2:** Status summary & submission<br>• **Repository Management:** Maintenance, code integration, and documentation |
+| **Brice** | • **Problem 3:** 16-bit Parallel Prefix Adder (PPA) Design & Testbench<br>• Structural verification & waveform debugging |
+| **Everyone** | • **Progress Report 1:** Status summary & submission<br>• **Progress Report 2:** Status summary & submission<br>• **Repository Management:** Maintenance, code integration, and documentation |
 
 ---
 
