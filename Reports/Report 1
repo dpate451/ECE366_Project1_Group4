@@ -1,0 +1,38 @@
+Progress Report 1 
+Group: Diya, Daniall, Daniel, Brice
+Date: 9/30/2026
+
+Current progress: Problem 1 & Problem 2 [Completed]
+
+1. Summary of Project Status [Current Milestone]
+
+Problem 1: RCA / RCS [Completed ✅]
+1-bit & 4-bit Ripple-Carry Adder/Subtractor implementation.
+Behavioral testbenches executed with 100% test coverage.
+Waveform analysis verified accurate carry and sum logic output. 
+
+Problem 2: 32-bit CLA [Started/ almost done ]
+32-bit Carry Lookahead Adder structural design & verification.
+Carry Generate (Gi) and Propagate (Pi) expressions fully designed. 
+Multi-block carry propagation logic implemented and verified.
+Complete testbench execution and waveform analysis completed. 
+
+2. Team Member Responsibilities 
+All team members met at the library on random days and collaborated on all problems together. 
+Diya Patel
+Problem 1: Built and tested the Verilog code for the 1-bit full adder and the 4-bit Ripple-Carry Adder/Subtractor modules.
+Problem 2(a): Helped outline the 32-bit CLA setup and module structure before we started coding.
+Going Forward: Planning to take the lead on Problem 4 (Kogge-Stone Adder) and help pull the final report together.
+
+Daniall & Daniel
+Problem 1: Helped check the waveform outputs for the 1-bit and 4-bit adder/subtractor testbenches.
+Problem 2(a): Wrote and finished the 32-bit CLA Verilog design and 4-bit blocks, created the testbench to check multi-block carry propagation, and handled pushing the code to GitHub.
+
+Brice 
+Problem 1 & 2(a): Worked with the team on analyzing waveforms, double-checking carry logic, and brainstorming test cases.
+Environment Setup: Helped test and debug our simulation tools so everyone could run simulations smoothly.
+Everyone
+Helped write and organize Progress Report 1.
+Managed code updates and made sure our local setups synced up cleanly with the team GitHub repo.
+
+
