@@ -1,6 +1,6 @@
 module one_bit_full_adder(A, B, Cin, S, Cout);
 
-// Port Declarations
+// Port Declaration
 input A, B, Cin;
 output S, Cout;
 
