@@ -10,7 +10,7 @@ This repository contains the design, implementation, and simulation of various f
 
 | Team Member | Assigned Tasks & Deliverables |
 | :--- | :--- |
-| **Diya Patel** | • **Problem 1: Built and tested the Verilog code for the 1-bit full adder and the 4-bit Ripple-Carry Adder/Subtractor modules. Problem 2(a): Helped outline the 32-bit CLA setup and module structure before we started coding. Going Forward: Planning to take the lead on Problem 4 (Kogge-Stone Adder) and help pull the final report together.|
+| **Diya Patel** | • Problem 1: Built and tested the Verilog code for the 1-bit full adder and the 4-bit Ripple-Carry Adder/Subtractor modules. Problem 2(a): Helped outline the 32-bit CLA setup and module structure before we started coding. Going Forward: Planning to take the lead on Problem 4 (Kogge-Stone Adder) and help pull the final report together.|
 | **Daniall & Daniel** | • **Problem 2:** 32-bit Carry Lookahead Adder (CLA) Design & Testbench<br>• Multi-block carry propagation verification |
 | **Brice** | • **Problem 3:** 16-bit Parallel Prefix Adder (PPA) Design & Testbench<br>• Structural verification & waveform debugging |
 | **Everyone** | • **Progress Report 1:** Status summary & submission<br>• **Progress Report 2:** Status summary & submission<br>• **Repository Management:** Maintenance, code integration, and documentation |
