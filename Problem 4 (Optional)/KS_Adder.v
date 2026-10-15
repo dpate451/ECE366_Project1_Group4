@@ -1,21 +1,20 @@
 module KS_Adder(A, B, Cin, S, Cout);
+//the port declarations
+input [15:0] A, B; // 16-bit input operands
+input Cin; // Initial carry-in
 
-input [15:0] A, B;
-input Cin;
-
-output [15:0] S;
-output Cout;
-
+output [15:0] S; // 16-bit output sum
+output Cout; // Final carry-out
+// Bit-level generate (G) and propagate (P) signals
 wire [15:0] P;
 wire [15:0] G;
-
+// Prefix network stages (Stages 1 through 4) for carry-tree computation
 wire [15:0] P1, G1;
 wire [15:0] P2, G2;
 wire [15:0] P3, G3;
 wire [15:0] P4, G4;
-
+// Inter-bit carry signals and temporary wire buffers for gate instantiation
 wire [15:0] C;
-
 wire [15:0] temp1;
 wire [15:0] temp2;
 wire [15:0] temp3;
@@ -24,6 +23,8 @@ wire [15:0] carry_temp;
 
 
 // Initial propagate and generate
+// P[i] = A[i] ^ B[i] (Propagate)
+// G[i] = A[i] and B[i] (Generate)
 generate
     for (genvar i = 0; i < 16; i = i + 1) begin
         xor (P[i], A[i], B[i]);
@@ -31,8 +32,8 @@ generate
     end
 endgenerate
 
-
-// Stage 1
+// Prefix Tree - Stage 1 
+// Span = 1 bit offset
 assign P1[0] = P[0];
 assign G1[0] = G[0];
 
@@ -44,8 +45,8 @@ generate
     end
 endgenerate
 
-
-// Stage 2
+// Prefix Tree - Stage 2 
+//Span = 2 bit offset
 assign P2[0] = P1[0];
 assign G2[0] = G1[0];
 
@@ -61,7 +62,8 @@ generate
 endgenerate
 
 
-// Stage 3
+// Prefix Tree - Stage 3
+// Span = 4 bit offset
 assign P3[0] = P2[0];
 assign G3[0] = G2[0];
 
@@ -83,7 +85,8 @@ generate
 endgenerate
 
 
-// Stage 4
+// Prefix Tree - Stage 4
+//Span = 8 bit offset - the final prefix layer
 assign P4[0] = P3[0];
 assign G4[0] = G3[0];
 
@@ -117,7 +120,8 @@ generate
 endgenerate
 
 
-// Carry calculations
+// Carry calculations 
+//Incorporating initial carry-in Cin
 assign C[0] = Cin;
 
 generate
@@ -129,6 +133,7 @@ endgenerate
 
 
 // Sum
+//S[i] = P[i] ^ C[i]
 generate
     for (genvar i = 0; i < 16; i = i + 1) begin
         xor (S[i], P[i], C[i]);
@@ -136,7 +141,7 @@ generate
 endgenerate
 
 
-// Final carry-out
+// Final carry-out calculation
 and (carry_temp[0], P4[15], Cin);
 or  (Cout, G4[15], carry_temp[0]);
 
