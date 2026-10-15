@@ -5,7 +5,7 @@ reg Cin;
 wire [31:0] S;
 wire Cout;
 
-  cla_32bit uut (.A(A), .B(B), .Cin(Cin), .S(S), .Cout(Cout));
+cla_32bit uut (.A(A), .B(B), .Cin(Cin), .S(S), .Cout(Cout));
 
 initial begin
 $dumpfile("dump.vcd");
