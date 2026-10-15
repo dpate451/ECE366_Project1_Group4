@@ -6,7 +6,7 @@ module PPA (
     output        Cout
 );
 
-    // Stage 0: Generation (g) and Propagation (p) signals
+    // Stage 0: Figure out the base generate (g) and propagate (p) for every single bit
     wire [15:0] g0, p0;
     genvar i;
     generate
@@ -17,8 +17,8 @@ module PPA (
     endgenerate
 
     // Black Cell helper module using 2-input AND/OR gates
-    // Computes: G_out = G_hi | (P_hi & G_lo), P_out = P_hi & P_lo
-    // Stage 1 (Distance 1)
+    // Computes: G_out = G_hi | (P_hi and G_lo), P_out = P_hi and P_lo
+    // Stage 1: Combine carries with a distance of 1 using black cell logic
     wire [15:0] g1, p1;
     assign g1[0] = g0[0];
     assign p1[0] = p0[0];
@@ -31,7 +31,7 @@ module PPA (
         end
     endgenerate
 
-    // Stage 2 (Distance 2)
+    // stage 2: Combine carries with a distance of 2
     wire [15:0] g2, p2;
     assign g2[1:0] = g1[1:0];
     assign p2[1:0] = p1[1:0];
@@ -44,7 +44,7 @@ module PPA (
         end
     endgenerate
 
-    // Stage 3 (Distance 4)
+    // Stage 3: Combine carries with a distance of 4
     wire [15:0] g3, p3;
     assign g3[3:0] = g2[3:0];
     assign p3[3:0] = p2[3:0];
@@ -57,7 +57,7 @@ module PPA (
         end
     endgenerate
 
-    // Stage 4 (Distance 8)
+    // Stage 4: Combine carries with a distance of 8 -finishes the prefix tree
     wire [15:0] g4, p4;
     assign g4[7:0] = g3[7:0];
     assign p4[7:0] = p3[7:0];
@@ -71,6 +71,7 @@ module PPA (
     endgenerate
 
     // Carry computation incorporate Cin
+    //Bring in the initial carry-in (Cin) to calculate all actual carry bits
     wire [16:0] C;
     assign C[0] = Cin;
     
@@ -84,14 +85,15 @@ module PPA (
 
     assign Cout = C[16];
 
-    // Sum generation: Sum[i] = A[i] ^ B[i] ^ C[i]
-    // XOR built using 2-input AND/OR/NOT logic gates
+    // Final Sum calculation: Sum[i] = A[i] ^ B[i] ^ C[i]
+    // XOR Built using basic 2-input AND, OR, and NOT gates
     generate
         for (i = 0; i < 16; i = i + 1) begin : gen_sum
             wire p_xor;
             wire c_not, p_not;
             wire term1, term2;
-            
+
+            // Step A: Calculate (A[i] ^ B[i]) using the gates
             // p_xor = A[i] ^ B[i]
             wire a_not, b_not, a_and_b_not, b_and_a_not;
             not (a_not, A[i]);
@@ -100,9 +102,10 @@ module PPA (
             and (b_and_a_not, B[i], a_not);
             or  (p_xor, a_and_b_not, b_and_a_not);
 
+            // Step B: Calculate final sum bit by XORing the propagate result with the carry bit
             // Sum[i] = p_xor ^ C[i]
             
-             not (c_not, C[i]);
+            not (c_not, C[i]);
             not (p_not, p_xor);
             and (term1, p_xor, c_not);
             and (term2, C[i], p_not);
