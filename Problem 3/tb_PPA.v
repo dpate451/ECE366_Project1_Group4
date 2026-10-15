@@ -4,18 +4,19 @@
 `timescale 1ns / 1ps
 
 module tb_PPA;
-
+    // Testbench signals to drive inputs and monitor outputs
     reg  [15:0] A;
     reg  [15:0] B;
     reg         Cin;
     wire [15:0] Sum;
     wire        Cout;
 
-    // Expected results
+    // Variables used to check results automatically during simulation
     reg [16:0] expected;
     integer i, errors;
 
     // Instantiate the Unit Under Test (UUT)
+    //connecting our PPA module
     PPA uut (
         .A(A),
         .B(B),
@@ -25,7 +26,7 @@ module tb_PPA;
     );
 
     initial begin
-        // Setup GTKWave/waveform dump
+        // Set up the waveform dump file for simulation viewing 
         $dumpfile("problem3_waveform.vcd");
         $dumpvars(0, tb_PPA);
 
@@ -49,7 +50,7 @@ module tb_PPA;
 
         // Test Case 4: Alternating bit pattern
         A = 16'hAAAA; B = 16'h5555; Cin = 1'b0; #10;
-        check_result();
+        check_result();               //tests internal prefix wiring
 
         // Test Case 5: Randomized Testing
         for (i = 0; i < 20; i = i + 1) begin
@@ -72,13 +73,14 @@ module tb_PPA;
     end
 
     // Task to verify output
+    //verifies if the hardware output matches expected math
     task check_result;
         begin
-            expected = A + B + Cin;
+            expected = A + B + Cin; // Calculate what the result should be
             if ({Cout, Sum} !== expected) begin
                 $display("ERROR at time %0t: A=%h, B=%h, Cin=%b | Expected: Cout=%b Sum=%h, Got: Cout=%b Sum=%h",
                          $time, A, B, Cin, expected[16], expected[15:0], Cout, Sum);
-                errors = errors + 1;
+                errors = errors + 1; // Track total errors if any mismatch occurs
             end else begin
                 $display("PASS at time %0t: A=%h, B=%h, Cin=%b => Sum=%h, Cout=%b",
                          $time, A, B, Cin, Sum, Cout);
