@@ -1,7 +1,7 @@
 module one_bit_full_adder(A, B, Cin, S, Cout);
 // the port declarations
 input A, B, Cin; //inputs A, B and Cin
-  output S, Cout; // outputs sum(s) and cout
+output S, Cout; // outputs sum(s) and cout
 
 wire x1; // wire for A XOR B
 wire x2; // wire for A AND B
