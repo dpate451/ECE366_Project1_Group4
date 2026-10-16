@@ -15,7 +15,7 @@ module tb_PPA;
     reg [16:0] expected;
     integer i, errors;
 
-    // Instantiate the Unit Under Test (UUT)
+    // the Unit Under Test (UUT)
     //connecting our PPA module
     PPA uut (
         .A(A),
