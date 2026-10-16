@@ -5,9 +5,9 @@ input A, B, Cin;
 output S, Cout;
 
 // Internal Wire Declarations
-wire x1;          // Intermediate XOR result: A ^ B
-wire x2;          // Intermediate AND result: A & B
-wire x3;          // Intermediate AND result: (A ^ B) & Cin
+wire x1;          // XOR result: A ^ B
+wire x2;          // AND result: A & B
+wire x3;          // AND result: (A ^ B) & Cin
 
 // Gate-Level Structural Modeling
     // ------------------------------------------------------------------------
@@ -15,9 +15,9 @@ wire x3;          // Intermediate AND result: (A ^ B) & Cin
 xor gate1(x1, A, B);
 xor gate2(S, x1, Cin);
 
-  // Carry-Out Logic: Cout = (A & B) | ((A ^ B) & Cin)
-and gate3(x2, A, B);          // x2 = A & B
-and gate4(x3, x1, Cin);       // x3 = (A ^ B) & Cin
+    // Carry-Out Logic: Cout = (A and B) | ((A ^ B) and Cin)
+    and gate3(x2, A, B);          // x2 = A and B
+    and gate4(x3, x1, Cin);       // x3 = (A ^ B) and Cin
 
 or gate5(Cout, x2, x3);       // Cout = x2 | x3
 
